@@ -11,3 +11,15 @@ services:
     environment:
       APP_MODULE: shortener.app:app
       WEB_CONCURRENCY: 1
+      DYNAMODB_ENDPOINT_URL: http://db:8000
+#      CREATE_REDIRECTS_TABLE: 1
+
+  db:
+    image: scylladb/scylla:4.0.0
+    command: --smp 1 --memory=400M --overprovisioned 1 --alternator-port=8000
+    volumes:
+      - scylla_data:/var/lib/scylla
+
+
+volumes:
+  scylla_data:
