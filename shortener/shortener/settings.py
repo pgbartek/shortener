@@ -1,0 +1,6 @@
+import os
+
+
+LOG_LEVEL = os.environ.get("LOG_LEVEL", "DEBUG")
+
+SENTRY_DSN = os.environ.get("SENTRY_DSN")

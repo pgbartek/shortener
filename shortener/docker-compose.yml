@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  shortener:
+    build: .
+    command: /start-reload.sh
+    volumes:
+      - ./:/app/
+    ports:
+      - 8002:80
+    environment:
+      APP_MODULE: shortener.app:app
+      WEB_CONCURRENCY: 1
